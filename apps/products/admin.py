@@ -19,7 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('title', 'description')
 
     def message_user(self, *args):
         pass

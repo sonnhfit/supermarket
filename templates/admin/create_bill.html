@@ -123,14 +123,10 @@
    <div class="text"><span></span></div>
    <div class="clear"></div>
 </th>
-<th scope="col" class="sortable column-username sorted ascending">
+<th scope="col" >
 
 
-       <div class="sortoptions">
-         <a class="sortremove" href="?o=" title="Bỏ khỏi sắp xếp"></a>
 
-         <a href="?o=-1" class="toggle ascending" title="Hoán đổi sắp xếp"></a>
-       </div>
 
 
    <div class="text"><a href="?o=-1">Mã hàng</a></div>
@@ -147,16 +143,10 @@
 
 
 
-   <div class="text"><a href="?o=3.1">Tên</a></div>
+   <div class="text"><a href="?o=3.1">Số lượng</a></div>
    <div class="clear"></div>
 </th>
-<th scope="col" class="sortable column-last_name">
 
-
-
-   <div class="text"><a href="?o=4.1">Họ</a></div>
-   <div class="clear"></div>
-</th>
 </tr>
 </thead>
 <tbody>
@@ -167,7 +157,7 @@
             <input type="checkbox" name="_selected_action" value="1" class="action-select">
         </td>
         <th class="field-username">
-            <a href="/auth/user/1/change/">{{ item.product.title }}</a>
+            <a href="">{{ item.product.title }}</a>
         </th>
         <td class="field-email"> {{ item.quantity }} </td>
     </tr>
