@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = i18n_patterns(
     path('', admin.site.urls),
     path('bills/', include('apps.bills.urls')),
+    path('report/', include('apps.reports.urls')),
     prefix_default_language=False
 )
 
