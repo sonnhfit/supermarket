@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from django.contrib import messages
 # Register your models here.
 
 from .models import Category, Product, Variation
@@ -7,11 +7,19 @@ from .models import Category, Product, Variation
 
 
 class ProductAdmin(admin.ModelAdmin):
+
     list_display = ('title', 'price', 'active',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'active',)
+    list_display = ('title',)
+
+    def message_user(self, *args):
+        pass
+
+    def save_model(self, request, obj, form, change):
+        super(CategoryAdmin, self).save_model(request, obj, form, change)
+        messages.success(request, 'Bạn vừa thêm loại sản phẩm thành công')
 
 
 class VariationAdmin(admin.ModelAdmin):
