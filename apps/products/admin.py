@@ -10,6 +10,13 @@ class ProductAdmin(admin.ModelAdmin):
 
     list_display = ('title', 'price', 'active',)
 
+    def message_user(self, *args):
+        pass
+
+    def save_model(self, request, obj, form, change):
+        super(ProductAdmin, self).save_model(request, obj, form, change)
+        messages.success(request, 'Bạn vừa thêm sản phẩm thành công')
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title',)
