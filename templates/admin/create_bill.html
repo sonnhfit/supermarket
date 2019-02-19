@@ -123,27 +123,18 @@
    <div class="text"><span></span></div>
    <div class="clear"></div>
 </th>
-<th scope="col" >
-
-
-
-
-
-   <div class="text"><a href="?o=-1">Mã hàng</a></div>
-   <div class="clear"></div>
-</th>
 <th scope="col" class="sortable column-email">
 
 
 
-   <div class="text"><a href="?o=2.1">Tên hàng</a></div>
+   <div class="text" style="color: white;">Tên hàng</div>
    <div class="clear"></div>
 </th>
 <th scope="col" class="sortable column-first_name">
 
 
 
-   <div class="text"><a href="?o=3.1">Số lượng</a></div>
+   <div class="text" style="color: white;">Số lượng</div>
    <div class="clear"></div>
 </th>
 
@@ -153,12 +144,10 @@
 
 {% for item in bill_item_list %}
     <tr class="row1">
-        <td class="action-checkbox">
-            <input type="checkbox" name="_selected_action" value="1" class="action-select">
+        <td></td>
+        <td class="field-username">
+            {{ item.product.title }}
         </td>
-        <th class="field-username">
-            <a href="">{{ item.product.title }}</a>
-        </th>
         <td class="field-email"> {{ item.quantity }} </td>
     </tr>
 {% endfor %}
@@ -167,9 +156,33 @@
 </div>
       </form>
 </div>
+
+ <div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>Tổng tiền</h2>
+
+
+            <ul class="actionlist">
+
+            <li class="">
+
+                    {{ sum_price }} VND
+
+                <br>
+
+
+
+            </li>
+
+            </ul>
+
+    </div>
+</div>
 </div>
         <br class="clear">
     </div>
+
+
     <!-- END Content -->
     <div id="footer"></div>
 </div>

@@ -5,6 +5,7 @@ from apps.products.models import Variation
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from .utils import *
 
 
 class CreateBills(LoginRequiredMixin, View):
@@ -13,9 +14,11 @@ class CreateBills(LoginRequiredMixin, View):
     def get(self, request):
         bill = Bills.objects.create(user=request.user)
         bill_item_list = BillDetail.objects.filter(bill_id=bill.id)
+        sum_price = total_price_bills(bill_id=bill.id)
         context = {
             'bill_id': bill.id,
-            'bill_item_list': bill_item_list
+            'bill_item_list': bill_item_list,
+            'sum_price': sum_price
         }
 
         return render(request, 'admin/create_bill.html', context)
@@ -24,7 +27,7 @@ class CreateBills(LoginRequiredMixin, View):
         bill_id = request.POST['bill_id']
         product_id = request.POST['product_id']
         quantity = request.POST['quantity']
-
+        sum_price = total_price_bills(bill_id=bill_id)
         try:
             variation = Variation.objects.get(id=product_id)
         except ObjectDoesNotExist:
@@ -32,7 +35,8 @@ class CreateBills(LoginRequiredMixin, View):
             bill_item_list = BillDetail.objects.filter(bill_id=bill_id)
             context = {
                 'bill_id': bill_id,
-                'bill_item_list': bill_item_list
+                'bill_item_list': bill_item_list,
+                'sum_price': sum_price
             }
 
             return render(request, 'admin/create_bill.html', context)
@@ -41,7 +45,8 @@ class CreateBills(LoginRequiredMixin, View):
         bill_item_list = BillDetail.objects.filter(bill_id=bill_id)
         context = {
             'bill_id': bill_id,
-            'bill_item_list': bill_item_list
+            'bill_item_list': bill_item_list,
+            'sum_price': sum_price
         }
 
         return render(request, 'admin/create_bill.html', context)

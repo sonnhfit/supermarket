@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="vi" >
+<head>
+<title>Site quản trị hệ thống. | Trang web admin Django</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+
+<h1 id="site-name"><a href="/">Trang quản trị cho Django</a></h1>
+
+        </div>
+
+
+        <div id="user-tools">
+
+                Chào mừng bạn,
+                <strong>{{ request.user.username }}</strong>.
+
+
+
+                    <a href="/">View site</a> /
+
+
+
+
+
+
+                <a href="/password_change/">Thay đổi mật khẩu</a> /
+
+                <a href="/logout/">Thoát</a>
+
+        </div>
+
+
+
+    </div>
+    <!-- END Header -->
+
+
+
+ {% if messages %}
+        <ul class="messagelist">{% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+        {% endfor %}</ul>
+        {% endif %}
+
+
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+
+        <h1>Site quản trị hệ thống.</h1>
+
+<div id="content-main">
+    <h2>Báo cáo</h2>
+
+</div>
+</div>
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>
